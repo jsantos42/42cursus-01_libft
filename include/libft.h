@@ -15,11 +15,11 @@ typedef struct s_list
 **	and a pointer to the previous and the next elements.
 */
 
-typedef struct	s_stack
+typedef struct s_stack
 {
-	int		content;
-	struct	s_stack *prev;
-	struct	s_stack	*next;
+	int				content;
+	struct s_stack	*prev;
+	struct s_stack	*next;
 }	t_stack;
 
 /*
@@ -98,5 +98,7 @@ void			stack_clear(t_stack *stack);
 */
 
 double			ft_power(double base, double exp);
+int				ft_abs(int number);
+void			ft_str_eraser(void *str);
 
 #endif

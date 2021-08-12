@@ -8,7 +8,7 @@ void	stack_clear(t_stack *stack)
 {
 	t_stack	*temp;
 
-	while(stack)
+	while (stack)
 	{
 		temp = stack->next;
 		free(stack);

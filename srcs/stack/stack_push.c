@@ -15,7 +15,7 @@ void	stack_push(t_stack **stack, int new_content)
 	{
 		new_node = stack_new(new_content);
 		new_node->next = *stack;
-        (*stack)->prev = new_node;
+		(*stack)->prev = new_node;
 		(*stack) = new_node;
 	}
 	else
