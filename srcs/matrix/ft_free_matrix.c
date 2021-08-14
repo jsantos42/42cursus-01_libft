@@ -13,7 +13,10 @@ void	ft_free_matrix(int **matrix, int arrays)
 {
 	int	iter;
 
-	iter = 0;
-	while (iter < arrays)
-		free(matrix[iter++]);
+	if (matrix)
+	{
+		iter = 0;
+		while (iter < arrays)
+			free(matrix[iter++]);
+	}
 }
