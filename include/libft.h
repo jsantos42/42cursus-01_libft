@@ -102,6 +102,7 @@ int				ft_abs(int number);
 double			ft_is_in_range(double value, double min, double max);
 int				ft_strchr_all(char *str, char chr);
 void			ft_str_eraser(void *str);
+char			*ft_add_chars(char *original, char c, size_t instances);
 void			ft_free_matrix(int **matrix, int arrays);
 int				ft_array_malloc(int *array, int size);
 int				ft_str_malloc(char *str, int length);
