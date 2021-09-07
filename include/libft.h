@@ -98,7 +98,8 @@ void			stack_clear(t_stack *stack);
 */
 
 double			ft_power(double base, double exp);
-int				ft_abs(int number);
+int				ft_abs_int(int number);
+double			ft_abs_double(double number);
 double			ft_is_in_range(double value, double min, double max);
 int				ft_strchr_all(char *str, char chr);
 void			ft_str_eraser(void *str);
