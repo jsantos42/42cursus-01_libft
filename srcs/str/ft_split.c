@@ -14,32 +14,31 @@
 static size_t	ft_strcounter(const char *s1, char splitter);
 static size_t	get_end_index(const char *str, char stop);
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *str, char c, int *str_count)
 {
 	char	**array;
-	int		n_strings;
 	int		string_i;
 	int		end;
 
-	if (!s)
-		return (0);
-	n_strings = ft_strcounter(s, c);
-	array = (char **)malloc(sizeof(char *) * (n_strings + 1));
+	if (!str)
+		return (NULL);
+	*str_count = ft_strcounter(str, c);
+	array = (char **)malloc(sizeof(char *) * (*str_count + 1));
 	if (!array)
-		return (0);
+		return (NULL);
 	string_i = 0;
-	while (string_i < n_strings && *s)
+	while (string_i < *str_count && *str)
 	{
-		if (*s == c)
-			s++;
+		if (*str == c)
+			str++;
 		else
 		{
-			end = get_end_index(s, c);
-			array[string_i++] = ft_substr(s, 0, end);
-			s += end;
+			end = get_end_index(str, c);
+			array[string_i++] = ft_substr(str, 0, end);
+			str += end;
 		}
 	}
-	array[string_i] = 0;
+	array[string_i] = NULL;
 	return (array);
 }
 
