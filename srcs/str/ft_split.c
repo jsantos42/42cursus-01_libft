@@ -34,7 +34,10 @@ char	**ft_split(char const *str, char c, int *str_count)
 		else
 		{
 			end = get_end_index(str, c);
-			array[string_i++] = ft_substr(str, 0, end);
+			array[string_i] = ft_substr(str, 0, end);
+			if (!array[string_i])
+				ft_free_matrix((void**)array, string_i);
+			string_i++;
 			str += end;
 		}
 	}
