@@ -1,18 +1,19 @@
 #include "../../include/libft.h"
 
 /*
-**	Returns an array containing the indexes of the chr occurrences in str.
+**	Returns an array containing the indexes of the chr instances in str.
+**	Note: on the calling function, make sure to check for a failed malloc (this
+**	happens when it returns NULL but nb_instances != 0).
 */
 
-int	*map_chr_occurrences(char *str, char chr)
+int	*map_chr_instances(char *str, char chr, size_t *nb_instances)
 {
-	size_t	size;
 	int		*positions;
 	int		iter;
 	int		jter;
 
-	size = count_chr_occurrences(str, chr);
-	if (!ft_array_malloc(&positions, (sizeof(int) * size)))
+	*nb_instances = count_chr_instances(str, chr);
+	if (!ft_array_malloc(&positions, (sizeof(int) * nb_instances)))
 		return (NULL);
 	iter = -1;
 	while (str[++iter] != '\0')
@@ -29,7 +30,7 @@ int	*map_chr_occurrences(char *str, char chr)
 **	instance count.
 */
 
-int	count_chr_occurrences(char *str, char chr)
+int	count_chr_instances(char *str, char chr)
 {
 	int	count;
 	int	iter;
