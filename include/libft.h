@@ -104,12 +104,13 @@ double			is_in_range_int(double value, double min, double max);
 int				is_in_range_long(long value, long min, long max);
 int				is_int(char *str);
 int				ft_isspace(int c);
-int				ft_strchr_all(char *str, char chr);
+int				*map_chr_occurrences(char *str, char chr);
+int				count_chr_occurrences(char *str, char chr);
 void			ft_str_eraser(void *str);
 char			*ft_add_chars(char *original, char c, size_t instances);
 void			ft_free_matrix(void **matrix, int arrays);
-int				ft_array_malloc(int *array, int size);
-int				ft_str_malloc(char *str, int length);
-int				ft_other_malloc(void *other);
+int				ft_array_malloc(int **array, size_t size);
+int				ft_str_malloc(char **str, size_t length);
+int				ft_other_malloc(void **other);
 
 #endif
