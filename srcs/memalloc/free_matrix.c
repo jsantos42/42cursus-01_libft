@@ -9,15 +9,15 @@
 **	2) The number of arrays on it.
 */
 
-void	ft_free_matrix(void **matrix, int arrays)
+void	free_matrix(void **matrix, int arrays)
 {
 	int	iter;
 
-	if (matrix)
+	if (matrix != NULL)
 	{
 		iter = -1;
 		while (++iter < arrays)
-			free(matrix[iter]);
+			free_if_not_null(matrix[iter]);
 		free(matrix);
 	}
 }
