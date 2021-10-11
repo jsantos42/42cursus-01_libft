@@ -13,7 +13,7 @@ int	*map_chr_instances(char *str, char chr, size_t *nb_instances)
 	int		jter;
 
 	*nb_instances = count_chr_instances(str, chr);
-	if (!ft_array_malloc(&positions, (sizeof(int) * nb_instances)))
+	if (!ft_array_malloc(&positions, (sizeof(int) * *nb_instances)))
 		return (NULL);
 	iter = -1;
 	while (str[++iter] != '\0')
