@@ -112,6 +112,5 @@ void			free_matrix(void **matrix, int arrays);
 void			free_if_not_null(void *memory);
 int				ft_array_malloc(int **array, size_t size);
 int				ft_str_malloc(char **str, size_t length);
-int				ft_other_malloc(void **other);
 
 #endif
