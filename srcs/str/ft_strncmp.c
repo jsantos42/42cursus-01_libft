@@ -4,8 +4,8 @@
 **	This function is intended to mimic strncmp of the Standard C Library and, as
 **	such, if the size n passed on is strlen of the shorter string, it might give
 **	unexpected results. To make sure the two strings are exactly the same, pass
-**	to size_t n strlen + 1! That way the NULL terminating character will also be
-**	compared.
+**	to the parameter n "strlen + 1". That way the NULL terminating character
+**	will also be compared.
 */
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
