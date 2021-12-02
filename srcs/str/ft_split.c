@@ -1,33 +1,37 @@
 #include "../../include/libft.h"
 
+static size_t	ft_strcounter(const char *s1, char splitter);
+static size_t	get_end_index(const char *str, char stop);
+
 /*
 **	Parameters:
 **	1. The string to be split.
 **	2. The delimiter character.
-**	
+**	3. The number of strings, in case it is relevant to get; otherwise, one
+**	could just pass NULL (note that there's an if condition to protect against
+**	that case).
+**
 **	Allocates and returns an array of strings obtained by splitting ’s’ using
 **	the character ’c’ as a delimiter.
 **	It returns the array of new strings resulting from the split, or NULL if
 **	the allocation fails.
 */
 
-static size_t	ft_strcounter(const char *s1, char splitter);
-static size_t	get_end_index(const char *str, char stop);
-
-char	**ft_split(char const *str, char c, int *str_count)
+char	**ft_split(char const *str, char c, int *nb_str)
 {
 	char	**array;
 	int		string_i;
 	int		end;
+	int		str_count;
 
 	if (!str)
 		return (NULL);
-	*str_count = ft_strcounter(str, c);
-	array = (char **)malloc(sizeof(char *) * (*str_count + 1));
+	str_count = ft_strcounter(str, c);
+	array = (char **)malloc(sizeof(char *) * (str_count + 1));
 	if (!array)
 		return (NULL);
 	string_i = 0;
-	while (string_i < *str_count && *str)
+	while (string_i < str_count && *str)
 	{
 		if (*str == c)
 			str++;
@@ -42,6 +46,8 @@ char	**ft_split(char const *str, char c, int *str_count)
 		}
 	}
 	array[string_i] = NULL;
+	if (nb_str)
+		*nb_str = str_count;
 	return (array);
 }
 
@@ -75,3 +81,4 @@ static size_t	get_end_index(const char *str, char stop)
 		len++;
 	return (len);
 }
+
