@@ -109,7 +109,7 @@ int				*map_chr_instances(char *str, char chr, size_t *nb_instances);
 void			ft_str_eraser(void *str);
 char			*ft_add_chars(char *original, char c, size_t instances);
 void			free_matrix(void **matrix, int arrays);
-void			free_if_not_null(void *memory);
+void			*free_if_not_null(void *pointer);
 int				ft_array_malloc(int **array, size_t size);
 int				ft_str_malloc(char **str, size_t length);
 

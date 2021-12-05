@@ -1,7 +1,13 @@
 #include "../../include/libft.h"
 
-void	free_if_not_null(void *memory)
+/*
+**	Frees the pointer passed as an argument and returns NULL to set that pointer
+**	to NULL.
+*/
+
+void	*free_if_not_null(void *pointer)
 {
-	if (memory != NULL)
-		free(memory);
+	if (pointer != NULL)
+		free(pointer);
+	return (NULL);
 }
