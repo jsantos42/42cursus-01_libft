@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jsantos <jsantos@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/14 14:18:57 by jsantos           #+#    #+#             */
+/*   Updated: 2021/12/14 14:18:57 by jsantos          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 ** no need for extra condition && s[i] != 0 on the while, we're not playing with
 ** strings but with memory, which is not null terminated.

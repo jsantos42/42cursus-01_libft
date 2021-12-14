@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jsantos <jsantos@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/14 14:19:23 by jsantos           #+#    #+#             */
+/*   Updated: 2021/12/14 14:21:12 by jsantos          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/libft.h"
 
 static size_t	ft_strcounter(const char *s1, char splitter);
@@ -40,7 +52,7 @@ char	**ft_split(char const *str, char c, int *nb_str)
 			end = get_end_index(str, c);
 			array[string_i] = ft_substr(str, 0, end);
 			if (!array[string_i])
-				free_matrix((void**)array, string_i);
+				free_matrix((void **)array, string_i);
 			string_i++;
 			str += end;
 		}
@@ -81,4 +93,3 @@ static size_t	get_end_index(const char *str, char stop)
 		len++;
 	return (len);
 }
-
