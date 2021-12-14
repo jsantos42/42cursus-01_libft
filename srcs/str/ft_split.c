@@ -13,6 +13,7 @@
 #include "../../include/libft.h"
 
 static size_t	ft_strcounter(const char *s1, char splitter);
+static char		**fill_matrix(char *str, char c, int str_count);
 static size_t	get_end_index(const char *str, char stop);
 
 /*
@@ -29,38 +30,18 @@ static size_t	get_end_index(const char *str, char stop);
 **	the allocation fails.
 */
 
-char	**ft_split(char const *str, char c, int *nb_str)
+char	**ft_split(char *str, char c, int *nb_str)
 {
-	char	**array;
-	int		string_i;
-	int		end;
 	int		str_count;
+	char	**matrix;
 
 	if (!str)
 		return (NULL);
 	str_count = ft_strcounter(str, c);
-	array = (char **)malloc(sizeof(char *) * (str_count + 1));
-	if (!array)
-		return (NULL);
-	string_i = 0;
-	while (string_i < str_count && *str)
-	{
-		if (*str == c)
-			str++;
-		else
-		{
-			end = get_end_index(str, c);
-			array[string_i] = ft_substr(str, 0, end);
-			if (!array[string_i])
-				free_matrix((void **)array, string_i);
-			string_i++;
-			str += end;
-		}
-	}
-	array[string_i] = NULL;
+	matrix = fill_matrix(str, c, str_count);
 	if (nb_str)
 		*nb_str = str_count;
-	return (array);
+	return (matrix);
 }
 
 static size_t	ft_strcounter(const char *s1, char splitter)
@@ -82,6 +63,34 @@ static size_t	ft_strcounter(const char *s1, char splitter)
 		s1++;
 	}
 	return (strings);
+}
+
+static char	**fill_matrix(char *str, char c, int str_count)
+{
+	char	**matrix;
+	int		i;
+	int		end;
+
+	matrix = (char **)malloc(sizeof(char *) * (str_count + 1));
+	if (!matrix)
+		return (NULL);
+	i = 0;
+	while (i < str_count && *str)
+	{
+		if (*str == c)
+			str++;
+		else
+		{
+			end = get_end_index(str, c);
+			matrix[i] = ft_substr(str, 0, end);
+			if (!matrix[i])
+				free_matrix((void **)matrix, i);
+			i++;
+			str += end;
+		}
+	}
+	matrix[i] = NULL;
+	return (matrix);
 }
 
 static size_t	get_end_index(const char *str, char stop)
